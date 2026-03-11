@@ -1,10 +1,8 @@
-# 🗣️ Fórum Hub — Alura Challenge
+#  Fórum Hub — Alura Challenge
 
 Uma API REST completa para um fórum de discussão, desenvolvida como parte do **Challenge Back-End da Alura**. Permite que usuários cadastrados criem, listem, atualizem e deletem tópicos por curso.
 
----
-
-## 🚀 Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 | Tecnologia | Versão | Função |
 |---|---|---|
@@ -18,9 +16,7 @@ Uma API REST completa para um fórum de discussão, desenvolvida como parte do *
 | SpringDoc OpenAPI | 2.3.0 | Documentação automática (Swagger) |
 | Maven | 3.x | Gerenciamento de dependências |
 
----
-
-## 📋 Funcionalidades
+##  Funcionalidades
 
 ### Autenticação
 - `POST /api/auth/register` — Cadastro de novo usuário
@@ -34,9 +30,9 @@ Uma API REST completa para um fórum de discussão, desenvolvida como parte do *
 - `DELETE /api/topics/{id}` — Deletar tópico *(somente autor ou admin)*
 - `GET /api/topics/my-topics` — Tópicos do usuário logado *(autenticado)*
 
----
 
-## 🔒 Regras de Segurança
+
+##  Regras de Segurança
 
 - Apenas usuários autenticados podem **criar** tópicos
 - Apenas o **autor do tópico** ou um **admin** pode atualizar ou deletar
@@ -44,9 +40,9 @@ Uma API REST completa para um fórum de discussão, desenvolvida como parte do *
 - Autenticação via **JWT Bearer Token** (validade: 24h)
 - Tópicos com **título + mensagem duplicados** são rejeitados
 
----
 
-## 🏗️ Arquitetura
+
+##  Arquitetura
 
 ```
 src/main/java/com/forumhub/
@@ -76,9 +72,9 @@ src/main/java/com/forumhub/
     └── TopicService.java         # Lógica de negócio dos tópicos
 ```
 
----
 
-## ▶️ Como Executar
+
+##  Como Executar
 
 ### Pré-requisitos
 - Java 17+
@@ -109,9 +105,8 @@ export JWT_SECRET=meu-segredo-super-seguro-aqui
 ./mvnw spring-boot:run
 ```
 
----
 
-## 🧪 Testando a API
+##  Testando a API
 
 ### Via Swagger UI (recomendado)
 
@@ -172,7 +167,7 @@ curl -X DELETE http://localhost:8080/api/topics/1 \
 
 ---
 
-## 🗄️ Banco de Dados H2
+##  Banco de Dados H2
 
 Acesse o console em `http://localhost:8080/h2-console`:
 - **JDBC URL:** `jdbc:h2:mem:forumhub`
@@ -181,7 +176,7 @@ Acesse o console em `http://localhost:8080/h2-console`:
 
 ---
 
-## 📦 Modelo de Dados
+##  Modelo de Dados
 
 ### User
 ```
@@ -196,7 +191,7 @@ created_at (auto), updated_at (auto), author_id (FK → users)
 
 ---
 
-## 🔄 Status de Tópicos
+##  Status de Tópicos
 
 | Status | Descrição |
 |---|---|
@@ -206,7 +201,7 @@ created_at (auto), updated_at (auto), author_id (FK → users)
 
 ---
 
-## ⚠️ Respostas de Erro
+##  Respostas de Erro
 
 Todos os erros retornam JSON padronizado:
 
@@ -229,7 +224,7 @@ Todos os erros retornam JSON padronizado:
 
 ---
 
-## 🧩 Desafios Enfrentados
+##  Desafios Enfrentados
 
 - **Configuração do Spring Security 6** — A nova API sem `WebSecurityConfigurerAdapter` exigiu atenção com o `SecurityFilterChain` e a desabilitação do CSRF para APIs stateless.
 - **Autorização por autor** — Implementar que apenas o criador do tópico (ou admin) pode alterá-lo requer injetar o usuário autenticado via `@AuthenticationPrincipal` e validar no service.
@@ -238,6 +233,6 @@ Todos os erros retornam JSON padronizado:
 
 ---
 
-## 📄 Licença
+##  Licença
 
 Este projeto foi desenvolvido para fins educacionais como parte do Challenge Alura.
